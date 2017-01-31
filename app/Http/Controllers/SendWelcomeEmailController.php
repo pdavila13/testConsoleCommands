@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Console\Commands\SendWelcomeEmail;
+use App\Mail\WelcomeEmail;
 use Illuminate\Http\Request;
 
 /**
@@ -33,7 +34,7 @@ class SendWelcomeEmailController extends Controller
      */
     public function index()
     {
-        $this->email->send();
+        Mail::to('pdavila@iesebre.com')->send(new WelcomeEmail());
     }
 
 }
